@@ -1,11 +1,11 @@
 import { type PropsWithChildren, useEffect } from "react";
 import { useNavigate } from "react-router";
 
+import { LoadingPage } from "@/components/shared/loading";
+
 import { useAppStatus } from "@/services/app/hooks";
 import { RouteNames } from "@/services/app/route-names";
 import { useUserStores } from "@/services/user/stores";
-
-import { LoadingPage } from "../loading";
 
 function ProtectedLayout({ children }: PropsWithChildren) {
   const { isInitialized } = useAppStatus();
