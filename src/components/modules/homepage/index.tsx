@@ -3,6 +3,7 @@ import { useTranslations } from "use-intl";
 
 import AppIcon from "@/components/app/app-icon";
 import { useTheme } from "@/components/providers/theme-provider";
+import { LoadingPage } from "@/components/shared/loading";
 import {
   Select,
   SelectContent,
@@ -66,6 +67,8 @@ function HomePage() {
       </p>
 
       <AppIcon src="/public/favicon.svg" width={50} />
+
+      <LoadingPage />
     </div>
   );
 }

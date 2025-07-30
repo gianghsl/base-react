@@ -6,30 +6,10 @@ import React, {
   useMemo,
 } from "react";
 
-export const intlNumberFormat = (
-  value: number,
-  options?: Intl.NumberFormatOptions,
-): string => {
-  return new Intl.NumberFormat(
-    "en-US",
-    options || { maximumFractionDigits: 10 },
-  ).format(value);
-};
-
-export function parseFormattedNumber(
-  formattedStr: string,
-  locale: string = "en-US",
-): number {
-  const parts = new Intl.NumberFormat(locale).formatToParts(12345.6);
-  const groupSymbol = parts.find((p) => p.type === "group")?.value || ",";
-  const decimalSymbol = parts.find((p) => p.type === "decimal")?.value || ".";
-
-  const normalized = formattedStr
-    .replace(new RegExp("\\" + groupSymbol, "g"), "")
-    .replace(decimalSymbol, ".");
-
-  return Number(normalized);
-}
+import {
+  intlNumberFormat,
+  parseFormattedNumber,
+} from "@/utils/format-currency";
 
 // Define props
 export interface InputNumberProps

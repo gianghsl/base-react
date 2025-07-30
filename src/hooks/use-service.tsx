@@ -6,7 +6,6 @@ import {
   useQueryClient,
 } from "@tanstack/react-query";
 
-// Factory để tạo Query Hooks
 export function createQueryHook<TQueryFnData = unknown>(options: {
   queryKey: QueryKey | ((...args: any[]) => QueryKey);
   queryFn: (...args: any[]) => Promise<TQueryFnData>;
@@ -25,7 +24,6 @@ export function createQueryHook<TQueryFnData = unknown>(options: {
   };
 }
 
-// Factory để tạo Mutation Hooks
 export function createMutationHook<
   TData = unknown,
   TVariables = void,

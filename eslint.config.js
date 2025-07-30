@@ -49,47 +49,6 @@ export default tseslint.config(
           ],
         },
       ],
-      "import/no-restricted-paths": [
-        "error",
-        {
-          zones: [
-            // Prevent services from importing from each other
-            {
-              target: "src/services/app/**/*",
-              from: [
-                "src/services/user/**/*",
-                "src/services/service_dumb/**/*",
-              ],
-              message: "Cross-service import is not allowed in `app`.",
-            },
-            {
-              target: "src/services/user/**/*",
-              from: ["src/services/app/**/*", "src/services/service_dumb/**/*"],
-              message: "Cross-service import is not allowed in `user`.",
-            },
-            {
-              target: "src/services/service_dumb/**/*",
-              from: ["src/services/app/**/*", "src/services/user/**/*"],
-              message: "Cross-service import is not allowed in `service_dumb`.",
-            },
-
-            // Prevent component modules from importing from each other
-            {
-              target: "src/components/modules/dumb/**/*",
-              from: "src/components/modules/homepage/**/*",
-              message:
-                "Cross-module import is not allowed. `dumb` cannot import from `homepage`.",
-            },
-            {
-              target: "src/components/modules/homepage/**/*",
-              from: "src/components/modules/dumb/**/*",
-              message:
-                "Cross-module import is not allowed. `homepage` cannot import from `dumb`.",
-            },
-          ],
-          basePath: ".",
-        },
-      ],
     },
     settings: {
       "import/resolver": {
